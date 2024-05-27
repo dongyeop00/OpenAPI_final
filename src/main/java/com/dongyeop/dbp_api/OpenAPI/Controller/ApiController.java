@@ -22,7 +22,7 @@ public class ApiController {
 
     @GetMapping("/api")
     public ResponseEntity<?> getFoodSafetyData() {
-        String url = "http://openapi.foodsafetykorea.go.kr/api/2d2fc9ac0b90436586de/C003/json/1/50";
+        String url = "http://openapi.foodsafetykorea.go.kr/api/2d2fc9ac0b90436586de/C003/json/1/100";
 
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);

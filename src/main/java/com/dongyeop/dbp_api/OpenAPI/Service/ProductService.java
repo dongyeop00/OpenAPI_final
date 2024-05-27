@@ -23,8 +23,8 @@ public class ProductService {
 
         // primaryFnclty 필드의 길이를 확인하고 자르기
         String primaryFnclty = productDTO.getPrimaryFnclty();
-        if (primaryFnclty != null && primaryFnclty.length() > 100) {
-            primaryFnclty = primaryFnclty.substring(0, 100);
+        if (primaryFnclty != null && primaryFnclty.length() > 255) {
+            primaryFnclty = primaryFnclty.substring(0, 255);
         }
         productEntity.setPrimaryFnclty(primaryFnclty);
 
@@ -33,6 +33,7 @@ public class ProductService {
         if (rawmtrlNm != null && rawmtrlNm.length() > 255) { // Assuming the column length is 255
             rawmtrlNm = rawmtrlNm.substring(0, 255);
         }
+
         productEntity.setRAWMTRL_NM(rawmtrlNm);
 
         productEntity.setPog_Daycnt(productDTO.getPog_Daycnt());
@@ -47,5 +48,10 @@ public class ProductService {
         for (ProductDTO productDTO : productDTOs) {
             saveProduct(productDTO);
         }
+    }
+
+    @Transactional(readOnly = true)
+    public List<ProductEntity> getAllProducts() {
+        return productRepository.findAll();
     }
 }

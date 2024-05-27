@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 정보</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card .field {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>제품 검색</h1>
+    <form action="#" th:action="@{/search}" method="get">
+        <input type="text" name="keyword" placeholder="제품명을 입력하세요">
+        <button type="submit">검색</button>
+    </form>
+    <hr>
+    <h2>검색 결과</h2>
+    <div th:if="${not #lists.isEmpty(products)}">
+        <div th:each="product : ${products}">
+            <!-- 카드 형식의 제품 정보 -->
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(products)}">
+        <p>검색 결과가 없습니다.</p>
+    </div>
+</div>
+
+<div class="container">
+    <h1>제품 정보</h1>
+    <div th:each="product : ${products}">
+        <div class="card">
+            <h2 th:text="${product.prdlstNm}"></h2>
+            <p><span class="field">섭취 방법:</span> <span th:text="${product.ntkMthd}"></span></p>
+            <p><span class="field">주된 기능성:</span> <span th:text="${product.primaryFnclty}"></span></p>
+            <p><span class="field">유통기한:</span> <span th:text="${product.pog_Daycnt}"></span></p>
+            <p><span class="field">섭취 시 주의사항:</span> <span th:text="${product.IFTKN_ATNT_MATR_CN}"></span></p>
+            <p><span class="field">보관 방법:</span> <span th:text="${product.CSTDY_MTHD}"></span></p>
+            <p><span class="field">원료명:</span> <span th:text="${product.RAWMTRL_NM}"></span></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

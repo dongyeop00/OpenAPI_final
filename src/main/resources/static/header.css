@@ -1,0 +1,28 @@
+/* 입력 필드 스타일 */
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+}
+
+/* 로그인/회원가입 버튼 스타일 */
+.login-btn, .signup-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px; /* 각 버튼 사이의 간격 조정 */
+}
+
+/* 로그인/회원가입 버튼 색상 및 효과 */
+.login-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.signup-btn {
+    background-color: #28a745;
+    color: #fff;
+}

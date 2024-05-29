@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 600px;
+    font-size: 16px;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-filter {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+checkbox-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-buttons label {
+    margin-right: 30px;
+}
+
+/* 이미지를 라디오 버튼 레이블에 추가하기 위한 스타일 */
+.checkbox-buttons label svg {
+    width: 100px; /* 이미지의 크기 조절 */
+    height: 100px;
+    margin-right: 10px; /* 이미지와 텍스트 사이의 간격 조절 */
+}

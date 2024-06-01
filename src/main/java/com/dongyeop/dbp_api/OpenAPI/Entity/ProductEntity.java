@@ -25,13 +25,13 @@ public class ProductEntity {
     private Long id;
 
     @Column
-    private String prdlstNm;
+    private String prdlstNm; //품목명
 
     @Column
-    private String ntkMthd;
+    private String ntkMthd; //섭취 방법
 
     @Column(name = "primaryFnclty", length = 255)
-    private String primaryFnclty;
+    private String primaryFnclty; //주된 기능
 
     @Column
     private String pog_Daycnt; // 소비기한

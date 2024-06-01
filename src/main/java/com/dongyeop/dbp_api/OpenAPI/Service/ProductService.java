@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -53,5 +54,18 @@ public class ProductService {
     @Transactional(readOnly = true)
     public List<ProductEntity> getAllProducts() {
         return productRepository.findAll();
+    }
+
+
+    @Transactional(readOnly = true)
+    public List<ProductEntity> getQueryProducts(String filter, String query) {
+        System.out.println("서비스 값 : " + filter + " " + query);
+        if(Objects.equals(filter, "name")) {
+            return productRepository.findByprdlstNmContaining(query);
+        }else if(Objects.equals(filter, "efficacy")){
+            return productRepository.findByprimaryFncltyContaining(query);
+        }else{
+            return null;
+        }
     }
 }

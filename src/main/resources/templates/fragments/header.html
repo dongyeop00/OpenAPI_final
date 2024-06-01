@@ -3,21 +3,25 @@
 
 <div th:fragment="fragment-header">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">로고</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">홈</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <button class="btn btn-outline-success login-btn" type="submit">로그인</button>
-            </form>
-            <button class="btn btn-outline-primary signup-btn">회원가입</button>
-        </div>
+    <div th:fragment="fragment-header">
+        <!-- 네비게이션 바 -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top coral-bg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/images/로고.png" alt="로고 이미지" width="50" height="50">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main">홈</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="login-btn" type="submit">로그인</button>
+                    </form>
+                    <button class="signup-btn">회원가입</button>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
-
 </div>

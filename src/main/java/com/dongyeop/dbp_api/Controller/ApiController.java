@@ -1,7 +1,7 @@
-package com.dongyeop.dbp_api.OpenAPI.Controller;
+package com.dongyeop.dbp_api.Controller;
 
-import com.dongyeop.dbp_api.OpenAPI.DTO.ProductDTO;
-import com.dongyeop.dbp_api.OpenAPI.Service.ProductService;
+import com.dongyeop.dbp_api.DTO.ProductDTO;
+import com.dongyeop.dbp_api.Service.ProductService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class ApiController {
 
     @GetMapping("/api")
     public ResponseEntity<?> getFoodSafetyData() {
-        String url = "http://openapi.foodsafetykorea.go.kr/api/2d2fc9ac0b90436586de/C003/json/1/100";
+        String url = "http://openapi.foodsafetykorea.go.kr/api/2d2fc9ac0b90436586de/C003/json/1/1000";
 
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);

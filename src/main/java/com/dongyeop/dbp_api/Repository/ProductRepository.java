@@ -1,6 +1,6 @@
-package com.dongyeop.dbp_api.OpenAPI.Repository;
+package com.dongyeop.dbp_api.Repository;
 
-import com.dongyeop.dbp_api.OpenAPI.Entity.ProductEntity;
+import com.dongyeop.dbp_api.Entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

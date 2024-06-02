@@ -1,4 +1,4 @@
-package com.dongyeop.dbp_api.OpenAPI.Entity;
+package com.dongyeop.dbp_api.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -30,18 +30,18 @@ public class ProductEntity {
     @Column
     private String ntkMthd; //섭취 방법
 
-    @Column(name = "primaryFnclty", length = 255)
+    @Column(name = "primaryFnclty", columnDefinition = "TEXT")
     private String primaryFnclty; //주된 기능
 
     @Column
     private String pog_Daycnt; // 소비기한
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String IFTKN_ATNT_MATR_CN; //섭취 주의사항
 
     @Column
     private String CSTDY_MTHD; //보관방법
 
-    @Column(name= "RAWMTRL_NM", length = 255)
+    @Column(name= "RAWMTRL_NM", columnDefinition = "TEXT")
     private String RAWMTRL_NM; //원재료
 }

@@ -1,7 +1,7 @@
-package com.dongyeop.dbp_api.Main.Controller;
+package com.dongyeop.dbp_api.Controller;
 
-import com.dongyeop.dbp_api.OpenAPI.Entity.ProductEntity;
-import com.dongyeop.dbp_api.OpenAPI.Service.ProductService;
+import com.dongyeop.dbp_api.Entity.ProductEntity;
+import com.dongyeop.dbp_api.Service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ public class MainController {
         List<ProductEntity> products = productService.getAllProducts();
         System.out.println(products);
         model.addAttribute("products", products);
-        return "index";
+        return "list";
     }
 
     @GetMapping("/")
@@ -37,22 +37,17 @@ public class MainController {
         System.out.println(filter + " " + query);
         List<ProductEntity> productEntities = productService.getQueryProducts(filter, query);
         model.addAttribute("products", productEntities);
-        return "index";
+        return "list";
     }
 
     @PostMapping("/submit")
-    public String searchButton(@RequestParam(name = "options", required = false) List<String> options) {
-        return null;
+    public String searchButton(@RequestParam(name = "selectedValues", required = false) List<String> options, Model model) {
+        System.out.println(options);
+        List<ProductEntity> productEntities = productService.getOptionProducts2(options);
+        model.addAttribute("products", productEntities);
+        model.addAttribute("selectedValues", options);
+        return "list";
     }
 
-    @GetMapping("/check")
-    public String check() {
-        return "check";
-    }
 
-    @GetMapping("/slide")
-    public String slide() {
-        return "slide";
-
-    }
 }

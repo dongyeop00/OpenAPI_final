@@ -49,5 +49,15 @@ public class MainController {
         return "list";
     }
 
+    @GetMapping("/login")
+    public String loginForm(){
+        return "login";
+    }
+
+    @GetMapping("/join")
+    public String joinForm(){
+        return "join";
+    }
+
 
 }

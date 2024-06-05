@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "member")
-public class MemberEntity {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,6 @@ public class MemberEntity {
     @Column
     private String userGender;
 
-    @OneToMany
-    @JoinColumn(name = "userCheckbox", nullable = true)
-    private List<MemberCheckboxValueEntity> memberCheckboxValueEntityList;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserCheckboxValueEntity> UserCheckboxValueEntityList;
 }

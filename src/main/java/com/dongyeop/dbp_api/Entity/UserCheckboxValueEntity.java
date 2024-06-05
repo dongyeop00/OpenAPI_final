@@ -7,8 +7,8 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-@Table(name = "MemberCheckboxValueEntity")
-public class MemberCheckboxValueEntity {
+@Table(name = "UserCheckboxValue")
+public class UserCheckboxValueEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,6 @@ public class MemberCheckboxValueEntity {
     private String value;
 
     @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
-    private MemberEntity member;
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 }

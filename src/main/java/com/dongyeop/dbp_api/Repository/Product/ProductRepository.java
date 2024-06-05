@@ -1,4 +1,4 @@
-package com.dongyeop.dbp_api.Repository;
+package com.dongyeop.dbp_api.Repository.Product;
 
 import com.dongyeop.dbp_api.Entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

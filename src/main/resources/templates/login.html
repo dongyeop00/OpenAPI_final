@@ -35,22 +35,20 @@
 <div th:replace="/fragments/header.html :: fragment-header"></div>
 
 <main class="form-signin text-center">
-  <form>
+  <form th:action="@{/login}" method="post">
     <img class="mb-4" src="/images/로고.png" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="userEmail">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="userPassword">
       <label for="floatingPassword">Password</label>
     </div>
 
-    <form th:action="@{/login}" method="post">
     <button class="btn btn-coral w-100 py-2" type="submit">Sign in</button>
-    </form>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
   </form>
 </main>

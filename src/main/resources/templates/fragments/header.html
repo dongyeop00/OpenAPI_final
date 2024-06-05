@@ -6,21 +6,44 @@
     <div th:fragment="fragment-header">
         <!-- 네비게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top coral-bg">
-            <div class="container-fluid">
+            <div class="container-fluid" th:if="${session.user == null}">
                 <a class="navbar-brand" href="/">
                     <img src="/images/로고.png" alt="로고 이미지" width="50" height="50">
                 </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="/main">홈</a>
                         </li>
                     </ul>
+
                     <form th:action="@{/login}" method="get">
                         <button class="login-btn" type="submit">로그인</button>
                     </form>
                     <form th:action="@{/join}" method="get">
-                    <button class="signup-btn">회원가입</button>
+                        <button class="signup-btn">회원가입</button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="container-fluid" th:if="${session.user != null}">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/로고.png" alt="로고 이미지" width="50" height="50">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/main">홈</a>
+                        </li>
+                    </ul>
+
+
+                    <form th:action="@{/detail}" method="get">
+                        <button class="login-btn" type="submit" th:text="${session.user.userNickname}"></button>
+                    </form>
+                    <form th:action="@{/logout}" method="get">
+                        <button class="signup-btn">로그아웃</button>
                     </form>
                 </div>
             </div>

@@ -2,7 +2,7 @@ package com.dongyeop.dbp_api.Service;
 
 import com.dongyeop.dbp_api.DTO.ProductDTO;
 import com.dongyeop.dbp_api.Entity.ProductEntity;
-import com.dongyeop.dbp_api.Repository.ProductRepository;
+import com.dongyeop.dbp_api.Repository.Product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

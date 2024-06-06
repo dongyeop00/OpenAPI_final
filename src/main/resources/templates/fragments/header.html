@@ -2,10 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="fragment-header">
-
-    <div th:fragment="fragment-header">
         <!-- 네비게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top coral-bg">
+
             <div class="container-fluid" th:if="${session.user == null}">
                 <a class="navbar-brand" href="/">
                     <img src="/images/로고.png" alt="로고 이미지" width="50" height="50">
@@ -39,7 +38,7 @@
                     </ul>
 
 
-                    <form th:action="@{/detail}" method="get">
+                    <form th:action="@{|/detail/${session.user.id}|}" method="get">
                         <button class="login-btn" type="submit" th:text="${session.user.userNickname}"></button>
                     </form>
                     <form th:action="@{/logout}" method="get">
@@ -48,5 +47,4 @@
                 </div>
             </div>
         </nav>
-    </div>
 </div>

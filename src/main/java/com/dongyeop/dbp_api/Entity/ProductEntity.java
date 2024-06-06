@@ -3,11 +3,13 @@ package com.dongyeop.dbp_api.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.SQLInsert;
 
 @Entity
 @Setter
 @Getter
+@ToString
 @Table(name="food")
 public class ProductEntity {
     /*

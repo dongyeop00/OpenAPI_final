@@ -13,6 +13,7 @@ import java.util.List;
 @ToString
 public class UserDTO {
 
+    private Long id;
     private String userName;
     private String userNickname;
     private String userEmail;
@@ -20,11 +21,23 @@ public class UserDTO {
     private String userGender;
     private List<String> selectedValues;
 
-    public static UserLoginDTO toUserDTO(UserEntity userEntity) {
+    public static UserLoginDTO toUserLoginDTO(UserEntity userEntity) {
         UserLoginDTO userLoginDTO = new UserLoginDTO();
+        userLoginDTO.setId(userEntity.getId());
         userLoginDTO.setUserEmail(userEntity.getUserEmail());
         userLoginDTO.setUserPassword(userEntity.getUserPassword());
         userLoginDTO.setUserNickname(userEntity.getUserNickname());
         return userLoginDTO;
+    }
+
+    public static UserDTO toUserDTO(UserEntity userEntity) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(userEntity.getId());
+        userDTO.setUserName(userEntity.getUserName());
+        userDTO.setUserNickname(userEntity.getUserNickname());
+        userDTO.setUserEmail(userEntity.getUserEmail());
+        userDTO.setUserPassword(userEntity.getUserPassword());
+        userDTO.setUserGender(userEntity.getUserGender());
+        return userDTO;
     }
 }

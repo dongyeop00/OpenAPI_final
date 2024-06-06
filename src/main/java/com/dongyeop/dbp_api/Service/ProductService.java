@@ -4,12 +4,16 @@ import com.dongyeop.dbp_api.DTO.ProductDTO;
 import com.dongyeop.dbp_api.Entity.ProductEntity;
 import com.dongyeop.dbp_api.Repository.Product.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -28,28 +32,6 @@ public class ProductService {
         productEntity.setIFTKN_ATNT_MATR_CN(productDTO.getIFTKN_ATNT_MATR_CN());
         productEntity.setCSTDY_MTHD(productDTO.getCSTDY_MTHD());
         productRepository.save(productEntity);
-
-
-        /*
-        // primaryFnclty 필드의 길이를 확인하고 자르기
-        String primaryFnclty = productDTO.getPrimaryFnclty();
-        if (primaryFnclty != null && primaryFnclty.length() > 255) {
-            primaryFnclty = primaryFnclty.substring(0, 255);
-        }
-        productEntity.setPrimaryFnclty(primaryFnclty);
-
-        // rawmtrl_nm 필드의 길이를 확인하고 자르기
-        String rawmtrlNm = productDTO.getRAWMTRL_NM();
-        if (rawmtrlNm != null && rawmtrlNm.length() > 255) { // Assuming the column length is 255
-            rawmtrlNm = rawmtrlNm.substring(0, 255);
-        }
-
-
-        productEntity.setRAWMTRL_NM(rawmtrlNm);
-         */
-
-
-
     }
 
     @Transactional
@@ -67,27 +49,15 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public List<ProductEntity> getQueryProducts(String filter, String query) {
-        System.out.println("서비스 값 : " + filter + " " + query);
         if(Objects.equals(filter, "name")) {
             return productRepository.findByprdlstNmContaining(query);
-        }else if(Objects.equals(filter, "efficacy")){
+        } else if(Objects.equals(filter, "efficacy")) {
             return productRepository.findByprimaryFncltyContaining(query);
-        }else{
+        } else {
             return null;
         }
     }
 
-    //선택된 모든 모든 영양소
-    public List<ProductEntity> getOptionProducts(List<String> options) {
-        List<ProductEntity> productEntities = new ArrayList<>();
-
-        for(String option : options){
-            List<ProductEntity> foundProducts = productRepository.findByprimaryFncltyContaining(option);
-            productEntities.addAll(foundProducts);
-        }
-
-        return productEntities;
-    }
 
     //선택된 영양소들이 있는
     public List<ProductEntity> getOptionProducts2(List<String> options) {
@@ -107,6 +77,25 @@ public class ProductService {
             }
         }
         return filteredProducts;
+    }
+
+    public ProductEntity getRandomOptionProduct(String value) {
+        List<ProductEntity> filteredProducts = new ArrayList<>();
+        List<ProductEntity> allProducts = productRepository.findAll();
+
+        for (ProductEntity product : allProducts) {
+            if (!product.getPrimaryFnclty().contains(value)) {
+                filteredProducts.add(product);
+            }
+        }
+
+        if (filteredProducts.isEmpty()) {
+            return null; // 만약 일치하지 않는 상품이 없을 경우 null 반환
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(filteredProducts.size());
+        return filteredProducts.get(randomIndex);
     }
 
 }

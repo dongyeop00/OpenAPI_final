@@ -4,6 +4,7 @@ import com.dongyeop.dbp_api.DTO.UserDTO;
 import com.dongyeop.dbp_api.DTO.UserLoginDTO;
 import com.dongyeop.dbp_api.Entity.UserCheckboxValueEntity;
 import com.dongyeop.dbp_api.Entity.UserEntity;
+import com.dongyeop.dbp_api.Repository.User.UserCheckboxValueRepository;
 import com.dongyeop.dbp_api.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserCheckboxValueRepository userCheckboxValueRepository;
 
     @Transactional
     public void saveUser(UserDTO userDTO) {
@@ -47,7 +49,7 @@ public class UserService {
         if(byUserEmail.isPresent()){
             UserEntity userEntity = byUserEmail.get(); //해당 데이터 가져옴
             if(userEntity.getUserPassword().equals(userDTO.getUserPassword())){ //로그인 비밀번호와 데이터와 일치하면
-                UserLoginDTO dto = UserDTO.toUserDTO(userEntity);
+                UserLoginDTO dto = UserDTO.toUserLoginDTO(userEntity);
                 System.out.println("로그인 성공");
                 return dto;
             }else{
@@ -57,4 +59,21 @@ public class UserService {
             return null;
         }
     }
+
+    public UserDTO findById(Long id) {
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(id);
+        if(optionalUserEntity.isPresent()){
+            return UserDTO.toUserDTO(optionalUserEntity.get());
+        }else{
+            return null;
+        }
+    }
+
+    public List<UserCheckboxValueEntity> findValueById(Long id) {
+        List<UserCheckboxValueEntity> userCheckboxValueDTO = userCheckboxValueRepository.findByUserId(id);
+        return userCheckboxValueDTO;
+    }
+
+
 }
+

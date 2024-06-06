@@ -1,19 +1,18 @@
 package com.dongyeop.dbp_api.Controller;
 
+import com.dongyeop.dbp_api.DTO.UserCheckboxValueDTO;
 import com.dongyeop.dbp_api.DTO.UserDTO;
 import com.dongyeop.dbp_api.DTO.UserLoginDTO;
+import com.dongyeop.dbp_api.Entity.ProductEntity;
 import com.dongyeop.dbp_api.Entity.UserCheckboxValueEntity;
-import com.dongyeop.dbp_api.Entity.UserEntity;
+import com.dongyeop.dbp_api.Service.ProductService;
+import com.dongyeop.dbp_api.Service.UserCheckboxValueService;
 import com.dongyeop.dbp_api.Service.UserService;
 import jakarta.servlet.http.HttpSession;
-import jdk.swing.interop.SwingInterOpUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,8 @@ import java.util.List;
 public class MemberController {
 
     private final UserService userService;
+    private final UserCheckboxValueService userCheckboxValueService;
+    private final ProductService productService;
 
     @GetMapping("/login")
     public String loginForm(){
@@ -35,7 +36,6 @@ public class MemberController {
         if(userLoginDTO != null){
             session.setAttribute("user",userLoginDTO);
             System.out.println("session : " + userLoginDTO);
-            System.out.println(session);
             return "redirect:/";
         }else{
             return "login";
@@ -51,6 +51,29 @@ public class MemberController {
     public String join(@ModelAttribute UserDTO userDTO){
         userService.saveUser(userDTO);
         return "main";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
+    }
+
+    @GetMapping("/detail/{id}")
+    public String detail(@PathVariable Long id, Model model){
+        UserDTO userDTO = userService.findById(id);
+        String[] values = userCheckboxValueService.findCheckboxValuesByUserId(id);
+        ProductEntity[] product = new ProductEntity[values.length];
+
+        for (int i = 0; i < values.length; i++) {
+            product[i] = productService.getRandomOptionProduct(values[i]);
+            System.out.println("Product for value " + values[i] + ": " + product[i]);
+        }
+
+        model.addAttribute("product",product);
+        model.addAttribute("values",values);
+        model.addAttribute("user", userDTO);
+        return "detail";
     }
 
 }

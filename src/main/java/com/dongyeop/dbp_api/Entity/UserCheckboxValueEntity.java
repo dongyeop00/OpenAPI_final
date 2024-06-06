@@ -3,9 +3,11 @@ package com.dongyeop.dbp_api.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Setter
+@ToString
 @Getter
 @Table(name = "UserCheckboxValue")
 public class UserCheckboxValueEntity {

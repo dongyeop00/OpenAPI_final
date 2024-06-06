@@ -1,0 +1,63 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 20px auto; /* 가운데 정렬 */
+    border-radius: 10px; /* 테두리를 둥글게 */
+}
+
+th, td {
+    padding: 10px; /* 셀 내부 여백 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    border-bottom: 2px solid coral;
+}
+
+
+.information{
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    border : 2px solid coral;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.card-information{
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    border : 2px solid coral;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.card {
+    width: 90%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+.card p {
+    margin: 5px 0;
+}
+.card .field {
+    font-weight: bold;
+}
+
+.value {
+    font-size: 30px; /* 원하는 크기로 조절하세요 */
+}

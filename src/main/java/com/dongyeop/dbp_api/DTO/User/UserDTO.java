@@ -1,8 +1,7 @@
-package com.dongyeop.dbp_api.DTO;
+package com.dongyeop.dbp_api.DTO.User;
 
-import com.dongyeop.dbp_api.Entity.UserEntity;
+import com.dongyeop.dbp_api.Entity.User.UserEntity;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 

@@ -1,4 +1,4 @@
-package com.dongyeop.dbp_api.DTO;
+package com.dongyeop.dbp_api.DTO.Product;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

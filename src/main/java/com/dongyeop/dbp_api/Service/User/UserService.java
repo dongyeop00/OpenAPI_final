@@ -1,9 +1,9 @@
-package com.dongyeop.dbp_api.Service;
+package com.dongyeop.dbp_api.Service.User;
 
-import com.dongyeop.dbp_api.DTO.UserDTO;
-import com.dongyeop.dbp_api.DTO.UserLoginDTO;
-import com.dongyeop.dbp_api.Entity.UserCheckboxValueEntity;
-import com.dongyeop.dbp_api.Entity.UserEntity;
+import com.dongyeop.dbp_api.DTO.User.UserDTO;
+import com.dongyeop.dbp_api.DTO.User.UserLoginDTO;
+import com.dongyeop.dbp_api.Entity.User.UserCheckboxValueEntity;
+import com.dongyeop.dbp_api.Entity.User.UserEntity;
 import com.dongyeop.dbp_api.Repository.User.UserCheckboxValueRepository;
 import com.dongyeop.dbp_api.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;

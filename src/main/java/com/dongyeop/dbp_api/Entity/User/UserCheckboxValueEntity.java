@@ -1,4 +1,4 @@
-package com.dongyeop.dbp_api.Entity;
+package com.dongyeop.dbp_api.Entity.User;
 
 import jakarta.persistence.*;
 import lombok.Getter;

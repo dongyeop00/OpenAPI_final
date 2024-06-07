@@ -1,12 +1,11 @@
-package com.dongyeop.dbp_api.Service;
+package com.dongyeop.dbp_api.Service.User;
 
-import com.dongyeop.dbp_api.Entity.UserCheckboxValueEntity;
+import com.dongyeop.dbp_api.Entity.User.UserCheckboxValueEntity;
 import com.dongyeop.dbp_api.Repository.User.UserCheckboxValueRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

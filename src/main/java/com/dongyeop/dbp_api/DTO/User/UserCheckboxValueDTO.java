@@ -1,11 +1,8 @@
-package com.dongyeop.dbp_api.DTO;
+package com.dongyeop.dbp_api.DTO.User;
 
-import com.dongyeop.dbp_api.Entity.UserCheckboxValueEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.List;
 
 @Getter
 @Setter

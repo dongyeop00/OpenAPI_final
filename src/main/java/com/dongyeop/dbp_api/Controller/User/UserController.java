@@ -1,24 +1,20 @@
-package com.dongyeop.dbp_api.Controller;
+package com.dongyeop.dbp_api.Controller.User;
 
-import com.dongyeop.dbp_api.DTO.UserCheckboxValueDTO;
-import com.dongyeop.dbp_api.DTO.UserDTO;
-import com.dongyeop.dbp_api.DTO.UserLoginDTO;
-import com.dongyeop.dbp_api.Entity.ProductEntity;
-import com.dongyeop.dbp_api.Entity.UserCheckboxValueEntity;
-import com.dongyeop.dbp_api.Service.ProductService;
-import com.dongyeop.dbp_api.Service.UserCheckboxValueService;
-import com.dongyeop.dbp_api.Service.UserService;
+import com.dongyeop.dbp_api.DTO.User.UserDTO;
+import com.dongyeop.dbp_api.DTO.User.UserLoginDTO;
+import com.dongyeop.dbp_api.Entity.Product.ProductEntity;
+import com.dongyeop.dbp_api.Service.Product.ProductService;
+import com.dongyeop.dbp_api.Service.User.UserCheckboxValueService;
+import com.dongyeop.dbp_api.Service.User.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 @RequiredArgsConstructor
-public class MemberController {
+public class UserController {
 
     private final UserService userService;
     private final UserCheckboxValueService userCheckboxValueService;

@@ -1,7 +1,7 @@
-package com.dongyeop.dbp_api.Controller;
+package com.dongyeop.dbp_api.Controller.Api;
 
-import com.dongyeop.dbp_api.DTO.ProductDTO;
-import com.dongyeop.dbp_api.Service.ProductService;
+import com.dongyeop.dbp_api.DTO.Product.ProductDTO;
+import com.dongyeop.dbp_api.Service.Product.ProductService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

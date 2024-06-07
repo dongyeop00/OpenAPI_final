@@ -1,11 +1,8 @@
-package com.dongyeop.dbp_api.Controller;
+package com.dongyeop.dbp_api.Controller.Main;
 
-import com.dongyeop.dbp_api.Entity.ProductEntity;
-import com.dongyeop.dbp_api.Service.ProductService;
+import com.dongyeop.dbp_api.Entity.Product.ProductEntity;
+import com.dongyeop.dbp_api.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

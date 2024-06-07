@@ -1,5 +1,6 @@
-package com.dongyeop.dbp_api.Entity;
+package com.dongyeop.dbp_api.Entity.User;
 
+import com.dongyeop.dbp_api.Entity.User.UserCheckboxValueEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

@@ -35,7 +35,6 @@ public class MemberController {
         UserLoginDTO userLoginDTO = userService.login(userDTO);
         if(userLoginDTO != null){
             session.setAttribute("user",userLoginDTO);
-            System.out.println("session : " + userLoginDTO);
             return "redirect:/";
         }else{
             return "login";
@@ -67,7 +66,6 @@ public class MemberController {
 
         for (int i = 0; i < values.length; i++) {
             product[i] = productService.getRandomOptionProduct(values[i]);
-            System.out.println("Product for value " + values[i] + ": " + product[i]);
         }
 
         model.addAttribute("product",product);
